@@ -43,47 +43,72 @@
 
 // Console.WriteLine("Numero Invertido: " +numInv);
 
-int opc, num1, num2, result;
+int opc, num1, num2, result, cont;
 float resultado;
-string opcAux, num1Aux, num2Aux;
+string opcAux, num1Aux, num2Aux, contAux;
 opc = 0;
-Console.WriteLine("================MENU================");
-Console.WriteLine(" 1 - SUMA");
-Console.WriteLine(" 2 - RESTA");
-Console.WriteLine(" 3 - PRODUCTO");
-Console.WriteLine(" 4 - DIVISION");
-Console.WriteLine("===================================");
-Console.WriteLine("Ingrese una Opcion : ");
-opcAux = Console.ReadLine();
-opc = int.Parse(opcAux);
+result = 0;
+resultado = 0;
+cont = 1;
 
-Console.WriteLine("Ingrese una 2 Numeros: ");
-num1Aux = Console.ReadLine();
-num2Aux = Console.ReadLine();
-
-num1 = int.Parse(num1Aux);
-num2 = int.Parse(num2Aux);
-
-
-switch (opc)
+while (cont != 0)
 {
-    case 1: 
-        result = num1 + num2;
-        break;
+    Console.WriteLine("================MENU================");
+    Console.WriteLine(" 1 - SUMA");
+    Console.WriteLine(" 2 - RESTA");
+    Console.WriteLine(" 3 - PRODUCTO");
+    Console.WriteLine(" 4 - DIVISION");
+    Console.WriteLine("===================================");
+    Console.WriteLine("Ingrese una Opcion : ");
+    opcAux = Console.ReadLine();
+    opc = int.Parse(opcAux);
     
-    case 2: 
-        result = num1 - num2;
-        break;
+    Console.WriteLine("Ingrese dos Numeros: ");
+    num1Aux = Console.ReadLine();
+    num2Aux = Console.ReadLine();
 
-    case 3: 
-        result = num1 * num2;
-        break;
+    num1 = int.Parse(num1Aux);
+    num2 = int.Parse(num2Aux);
 
-    case 4: 
-        resultado = num1 / num2;
-        break;
+    switch (opc)
+    {
+        case 1: 
+            result = num1 + num2;
+            break;
         
-    default:
-        Console.WriteLine("Ingreso una opcion no valida");
-        break;
+        case 2: 
+            result = num1 - num2;
+            break;
+
+        case 3: 
+            result = num1 * num2;
+            break;
+
+        case 4: 
+            resultado = num1 / num2;
+            break;
+
+        default:
+            Console.WriteLine("Ingreso una opcion no valida");
+            break;
+    }
+
+    if (opc == 1 || opc == 2 || opc == 3)
+    {
+        Console.WriteLine($"Resultado de la Operacion: {result}");
+    }
+    else
+    {
+        if (opc == 4)
+        {
+            Console.WriteLine($"Resultado de la Operacion: {resultado}"); 
+        }
+    }
+
+    Console.WriteLine("¿Desea Realizar otra Operacion?");
+    Console.WriteLine("0  = NO || 1 = SI");
+    contAux = Console.ReadLine();
+    cont = int.Parse(contAux);
 }
+
+    Console.WriteLine("Saliendo...");
