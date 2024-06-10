@@ -44,8 +44,8 @@
 // Console.WriteLine("Numero Invertido: " +numInv);
 
 int opc, cont;
-float resultado, num1;
-string opcAux, num1Aux, contAux;
+float resultado, num1, num2, max, min;
+string opcAux, num1Aux, num2Aux, contAux;
 opc = 0;
 resultado = 0;
 cont = 1;
@@ -59,6 +59,8 @@ while (cont != 0)
     Console.WriteLine(" 4 - SENO");
     Console.WriteLine(" 5 - COSENO");
     Console.WriteLine(" 6 - ENTERO DE UN FLOAT");
+    Console.WriteLine(" 7 - MINIMO ENTRE DOS NUMEROS");
+    Console.WriteLine(" 8 - MAXIMO ENTRE DOS NUMEROS");
     Console.WriteLine("===================================");
     Console.WriteLine("Ingrese una Opcion : ");
     opcAux = Console.ReadLine();
@@ -99,6 +101,20 @@ while (cont != 0)
             break;
         case 6: 
             resultado = (int)Math.Floor(num1);
+            break;
+        case 7: 
+            Console.WriteLine("Ingrese otro Numero: ");
+            num2Aux = Console.ReadLine();
+            num2 = float.Parse(num2Aux);
+            
+            min = Math.Min(num1, num2);
+            break;
+        case 8: 
+            Console.WriteLine("Ingrese otro Numero: ");
+            num2Aux = Console.ReadLine();
+            num2 = float.Parse(num2Aux);
+            
+            max = Math.Max(num1, num2);
             break;
 
         default:
