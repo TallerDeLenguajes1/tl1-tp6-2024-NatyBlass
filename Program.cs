@@ -1,5 +1,5 @@
-﻿//See https://aka.ms/new-console-template for more information
-// Console.WriteLine("Hello, World!");
+﻿// See https://aka.ms/new-console-template for more information
+Console.WriteLine("Hello, World!");
 
 // /*int a;
 // int b;
@@ -43,11 +43,10 @@
 
 // Console.WriteLine("Numero Invertido: " +numInv);
 
-int opc, num1, num2, result, cont;
-float resultado;
+int opc, cont;
+float resultado, num1, num2, max, min;
 string opcAux, num1Aux, num2Aux, contAux;
 opc = 0;
-result = 0;
 resultado = 0;
 cont = 1;
 
@@ -58,17 +57,24 @@ while (cont != 0)
     Console.WriteLine(" 2 - RESTA");
     Console.WriteLine(" 3 - PRODUCTO");
     Console.WriteLine(" 4 - DIVISION");
+    Console.WriteLine(" 5 - VALOR ABSOLUTO");
+    Console.WriteLine(" 6 - CUADRADO DE UN NUMERO");
+    Console.WriteLine(" 7 - RAIZ CUADRADA DE UN NUMERO");
+    Console.WriteLine(" 8 - SENO");
+    Console.WriteLine(" 9 - COSENO");
+    Console.WriteLine(" 10 - ENTERO DE UN FLOAT");
+    Console.WriteLine(" 11 - MINIMO ENTRE DOS NUMEROS");
+    Console.WriteLine(" 12 - MAXIMO ENTRE DOS NUMEROS");
     Console.WriteLine("===================================");
     Console.WriteLine("Ingrese una Opcion : ");
     opcAux = Console.ReadLine();
     opc = int.Parse(opcAux);
     
-    Console.WriteLine("Ingrese dos Numeros: ");
+    Console.WriteLine("Ingrese un Numero: ");
     num1Aux = Console.ReadLine();
-    num2Aux = Console.ReadLine();
 
-    num1 = int.Parse(num1Aux);
-    num2 = int.Parse(num2Aux);
+    num1 = float.Parse(num1Aux);
+
 
     switch (opc)
     {
@@ -87,23 +93,55 @@ while (cont != 0)
         case 4: 
             resultado = num1 / num2;
             break;
+        case 5: 
+            if (num1 < 0)
+            {
+                resultado = num1 * (-1);
+            }
+            else
+            {
+                resultado = num1;
+            }
+            break;
+        
+        case 6: 
+            resultado = num1 * num1;
+            break;
+
+        case 7: 
+            resultado = (int)Math.Sqrt(num1);
+            break;
+
+        case 8: 
+            resultado = (float)Math.Sin(num1);
+            break;
+        case 9:
+            resultado = (float)Math.Cos(num1);
+            break;
+        case 10: 
+            resultado = (int)Math.Floor(num1);
+            break;
+        case 11: 
+            Console.WriteLine("Ingrese otro Numero: ");
+            num2Aux = Console.ReadLine();
+            num2 = float.Parse(num2Aux);
+            
+            min = Math.Min(num1, num2);
+            break;
+        case 12: 
+            Console.WriteLine("Ingrese otro Numero: ");
+            num2Aux = Console.ReadLine();
+            num2 = float.Parse(num2Aux);
+            
+            max = Math.Max(num1, num2);
+            break;
 
         default:
             Console.WriteLine("Ingreso una opcion no valida");
             break;
     }
-
-    if (opc == 1 || opc == 2 || opc == 3)
-    {
-        Console.WriteLine($"Resultado de la Operacion: {result}");
-    }
-    else
-    {
-        if (opc == 4)
-        {
-            Console.WriteLine($"Resultado de la Operacion: {resultado}"); 
-        }
-    }
+    
+    Console.WriteLine($"Resultado de la Operacion: {resultado}"); 
 
     Console.WriteLine("¿Desea Realizar otra Operacion?");
     Console.WriteLine("0  = NO || 1 = SI");
