@@ -1,45 +1,22 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿string cadena, cadena2, cadConcatenadas, subCad;
+int tamaño;
 
-/*int a;
-int b;
+Console.WriteLine("Ingrese una cadena de caracteres: ");
+cadena = Console.ReadLine();
 
-a = 10; 
-b = a;
+Console.WriteLine("La cadena ingresada es: " +cadena);
 
-Console.WriteLine("valor de a: "+a);
-Console.WriteLine("valor de b: "+b);
-*/
+tamaño = cadena.Length; //Length me da la longitud de una cadena
 
-string a;
-int num, aux;
-int numInv;
-int i;
+Console.WriteLine("La longitud de la cadena es: " +tamaño);
 
-numInv = 0;
-i = 0;
+Console.WriteLine("Ingrese otra cadena de caracteres: ");
+cadena2 = Console.ReadLine();
 
-Console.WriteLine("Ingrese un numero: ");
-a = Console.ReadLine();
-num = int.Parse(a);
+cadConcatenadas = cadena + cadena2;  // el operador + concatena cadenas o también se puede usar el método "String.Concat(cad1,cad2)" 
 
+Console.WriteLine("Las cadenas concatenadas formaron: " +cadConcatenadas);
 
-while (num != 0)
-{
-    aux = num % 10;
-    num = (int)num / 10;
+subCad = cadena.Substring(2);
 
-    if (i == 0)
-    {
-        numInv = aux;
-
-    }
-    else{
-        numInv = numInv * 10 + aux;
-        
-    }
-    i++;
-}
-
-Console.WriteLine("Numero Invertido: " +numInv);
-
+Console.WriteLine("La SubCadena que se formó es: " +subCad);
